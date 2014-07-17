@@ -1,7 +1,7 @@
 CoreXY 3D Printer
 ==================
 
-A CoreXY based printer based on jand1122's https://github.com/jand1122/RepRap-XY and zelogik's https://github.com/zelogik/AluXY CoreyXY 3D printer. 
+A CoreXY based printer based on jand1122's https://github.com/jand1122/RepRap-XY and zelogik's https://github.com/zelogik/AluXY CoreXY 3D printer. 
 
 
 Modifications include:
