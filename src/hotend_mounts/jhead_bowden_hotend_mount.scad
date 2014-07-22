@@ -3,6 +3,9 @@
 
 //Inspired by imrahil's jhead mount: http://www.thingiverse.com/thing:148536
 //and sauce71's E3D FanfanfanDuct: https://www.youmagine.com/designs/e3d-fanfanfanduct#!design-information
+// and http://www.thingiverse.com/thing:108273
+
+
 
 //Designed to fit verical X-Carriage using the 30mm spaced mounting holes
 //uses 3 25mm fans
