@@ -2,8 +2,8 @@
 // Author: sdavi
 
 
-include <configuration.scad>
-include <dimensions.scad>
+include <../configuration.scad>
+include <../dimensions.scad>
 
 //switch_length = 20;
 //switch_width = 10.5;
@@ -13,7 +13,7 @@ include <dimensions.scad>
 
 //endstop_holder(diameter=8);
 //translate([0,22,0]) endstop(8);
-//translate([0,44,0]) endstop(12);
+//translate([0,44,0]) endstop_holder(12);
 
 
 module endstop_holder(diameter=8){

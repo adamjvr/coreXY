@@ -12,6 +12,8 @@ BEARING_2x624 = [4, 13, 10]; // 2 624 bearings together, good size for GT2
 BEARING_6300 = [10,35,11]; //inner diameter, outer diameter, thickness
 
 
+t_nut_length = 15+1; //hole in center 1mm cleanance incase hole isnt actually center
+
 
 GT2_belt_width = 6;
 GT2_belt_pitch = 2;
@@ -47,3 +49,4 @@ m4_washer_diameter = 9.6;
 
 nema17_holes = 31;// mm between screws
 nema17_width = 42; //width
+nema17_height = 48;
