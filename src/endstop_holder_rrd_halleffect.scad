@@ -35,32 +35,38 @@ module endstop_holder_frame(){
 		union(){
 			cube([24, 5, 20+8]);
 	
-			translate([24/2-middle/2, 0,0])cube([middle, 15, 20]);
+			translate([24/2-middle/2, 0,0])cube([middle, 15, 24]);
+			translate([24/2-middle/2, 0,24])cube([middle, 15+20, 4]);
 		}
 
 
 
 		translate([0, 0,0])cube([25, 15, 5]);
 
+	//frame screw
+		translate([24/2, 15+10, 20-0.1]) cylinder(d=frame_screw, h=15.2);
+		//translate([24/2, 15+10, 20-0.1]) cylinder(d=10, h=4);
 
-		translate([24/2, 0-0.1, 10]) rotate([-90,0,0]) cylinder(d=frame_screw, h=15.2);
-		translate([24/2, 0-0.1, 10]) rotate([-90,0,0]) cylinder(d=10, h=15-4);
 
-		//mounting slot
+		//mounting slots
 
 		translate([24/2-17/2,-0.1,0]){
-			translate([0,0, 3+5]) rotate([-90,0,0]) cylinder(d=M3, h=5.2, $fn=30);
-			translate([0,0, 28-3]) rotate([-90,0,0]) cylinder(d=M3, h=5.2, $fn=30);
-			
-			translate([-M3/2,0,3+5]) cube([M3, 5.2, 28-6-5]);
+			translate([0,0, 3+5]) rotate([-90,0,0]) cylinder(d=M3, h=9.2, $fn=30);
+			translate([0,0, 28-3]) rotate([-90,0,0]) cylinder(d=M3, h=9.2, $fn=30);
+
+			translate([-M3/2,0,3+5]) cube([M3, 9.2, 28-6-5]);
+			//make sure width for nuts
+			translate([-m3_nut_diameter_horizontal/2,5,5]) cube([m3_nut_diameter_horizontal, 2.8, 28-6]);
 
 		}
 		translate([24/2+17/2,-0.1,0]){
-			translate([0,0, 3+5]) rotate([-90,0,0]) cylinder(d=M3, h=5.2, $fn=30);
-			translate([0,0, 28-3]) rotate([-90,0,0]) cylinder(d=M3, h=5.2, $fn=30);
+			translate([0,0, 3+5]) rotate([-90,0,0]) cylinder(d=M3, h=9.2, $fn=30);
+			translate([0,0, 28-3]) rotate([-90,0,0]) cylinder(d=M3, h=9.2, $fn=30);
 
-			translate([-M3/2,0,3+5]) cube([M3, 5.2, 28-6-5]);
-			
+			translate([-M3/2,0,3+5]) cube([M3, 9.2, 28-6-5]);
+			//make sure width for nuts
+			translate([-m3_nut_diameter_horizontal/2,5,5]) cube([m3_nut_diameter_horizontal, 2.8, 28-6]);
+
 		}
 		
 
