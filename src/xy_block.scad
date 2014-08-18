@@ -7,16 +7,12 @@ include <dimensions.scad>
 
 
 
-//single bearing per side variant
-
-
-
 use_xrod_clamp = true; //use ziptie clamps for xrod?
 //clamp_ziptie = true;//use zipties to clamp rod
 
-rotate([90,0,0])xy_block(top=1, clamp=use_xrod_clamp); //top
-rotate([90,0,180])translate([5,0,0])mirror([0,0,1]) 
-	xy_block(top=0, clamp=use_xrod_clamp); //bottom (nut trap for bearing end)
+xy_block(top=1, clamp=use_xrod_clamp); //top
+translate([0,0,-5])mirror([0,0,1]) 
+xy_block(top=0, clamp=use_xrod_clamp); //bottom (nut trap for bearing end)
 
 //clamp();
 
@@ -30,10 +26,9 @@ wall_thickness = 2;
 
 
 x_height = x_rod_distance+x_bearing[0] + wall_thickness*2+4;
+x_width = x_bearing[0] * 2 + 20;//20 for some extra dist to screw down (todo what size?)
 x_length = y_bearing_block_width/2+xy_bearing_distance+belt_bearing[1]/2;
 x_top_width = GT2_belt_thickness+belt_bearing[1]+M4+6; 
-x_width = x_top_width;
-//x_width = x_bearing[0]+ 20;//20 for some extra dist to screw down (todo what size?)
 
 
 
@@ -65,8 +60,8 @@ module xy_block(top=1, clamp=0){
 				cylinder(d=y_bearing[1]+0.2, h=y_bearing_block_length+0.2, $fn=30);
 
 		//cut middle to make easier to print top part without support
-		translate([y_bearing_block_length/2-y_bearing[2]/2+5/2, 0,0 ])
-			cube([y_bearing[2]-5, y_bearing_block_width, 3]);
+		translate([y_bearing_block_length/2-y_bearing[2]+5/2, 0,0 ])
+			cube([y_bearing[2]*2-5, y_bearing_block_width, 3]);
 
 		//cut hole for x_rod
 		translate([y_bearing_block_length/2, x_length+0.1,x_rod_distance/2]) 
@@ -96,10 +91,9 @@ module xy_block(top=1, clamp=0){
 
 		//screws for y bearing clamp (m3) (as jand next to bearings)
 		translate([y_bearing_block_length/2, y_bearing_block_width/2, 0]){
-			for(x=[-y_bearing[2]/2-M3/2, +y_bearing[2]/2+M3/2]){
+			for(x=[-y_bearing[2]-M3/2, +y_bearing[2]+M3/2]){
 				for(y=[y_bearing[0]/2+2, -y_bearing[0]/2-2]){
 					translate([x,y,0])cylinder(d=M3, h=x_height, $fn=60);
-					translate([x,y,y_bearing_block_height]) cylinder(d=m3_washer_diameter, h=x_height, $fn=60);
 				}
 			}
 		}
